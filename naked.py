@@ -10,7 +10,7 @@ print('Asteroid processing service')
 # Initiating and reading config values
 print('Loading configuration from file')
 
-#Initializing nasa api 
+# Initializing nasa api 
 nasa_api_key = "YlFUQ1qwS6PhKx7umbXyKdLiA2Y3PeIs2QKr1Pur"
 nasa_api_url = "https://api.nasa.gov/neo/"
 
@@ -83,6 +83,7 @@ if r.status_code == 200:
 						tmp_ast_speed = -1
 						tmp_ast_miss_dist = -1
 
+					#Asteroids printing
 					print("------------------------------------------------------- >>")
 					print("Asteroid name: " + str(tmp_ast_name) + " | INFO: " + str(tmp_ast_nasa_jpl_url) + " | Diameter: " + str(tmp_ast_diam_min) + " - " + str(tmp_ast_diam_max) + " km | Hazardous: " + str(tmp_ast_hazardous))
 					print("Close approach TS: " + str(tmp_ast_close_appr_ts) + " | Date/time UTC TZ: " + str(tmp_ast_close_appr_dt_utc) + " | Local TZ: " + str(tmp_ast_close_appr_dt))
@@ -96,7 +97,7 @@ if r.status_code == 200:
 
 		else:
 			print("No asteroids are going to hit earth today")
-
+	# Print unsafe or hazardous asteroids count and safe asteroids count
 	print("Hazardous asteorids: " + str(len(ast_hazardous)) + " | Safe asteroids: " + str(len(ast_safe)))
 
 	if len(ast_hazardous) > 0:
@@ -113,4 +114,4 @@ if r.status_code == 200:
 		print("No asteroids close passing earth today")
 
 else:
-	print("Unable to get response from API. Response code: " + str(r.status_code) + " | content: " + str(r.text))
+	print("Unable to get response from API. Response code: " + str(r.status_code) + " | content: " + str(r.text))#
